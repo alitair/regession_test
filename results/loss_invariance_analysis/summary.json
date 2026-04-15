@@ -1,0 +1,30 @@
+{
+  "config": {
+    "run_name": "loss_invariance_analysis",
+    "data_root": "data",
+    "results_root": "results",
+    "n_samples": 200,
+    "n_terms": 6,
+    "m1": 1.5,
+    "m2": -0.8,
+    "noise_std": 0.1,
+    "seed": 7
+  },
+  "summary": {
+    "a_fit": 1.503264419793911,
+    "b_fit": -0.8013760396394637,
+    "base_loss": 0.004925250460957958,
+    "active_rank": 2,
+    "nullity": 10,
+    "max_null_loss": 0.004925250460957958,
+    "aggregate_drift": 9.992007221626409e-16,
+    "random_loss": 29.57449854695278
+  },
+  "artifacts": {
+    "figure_png": "results/loss_invariance_analysis/loss_invariance_process.png",
+    "timings_csv": "results/loss_invariance_analysis/timings.csv",
+    "equivalent_solutions_csv": "results/loss_invariance_analysis/equivalent_solutions.csv",
+    "direction_scan_csv": "results/loss_invariance_analysis/direction_scan.csv",
+    "run_readme": "results/loss_invariance_analysis/README.md"
+  }
+}

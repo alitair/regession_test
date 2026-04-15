@@ -1,0 +1,7 @@
+step,seconds
+generate synthetic dataset,0.000088
+fit aggregate coefficients,0.000095
+analyze hessian structure,0.000066
+sample equivalent solutions,0.001460
+scan loss along active and null directions,0.007895
+render process figure,0.452860

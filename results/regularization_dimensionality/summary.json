@@ -1,0 +1,50 @@
+{
+  "config": {
+    "run_name": "regularization_dimensionality",
+    "data_root": "data",
+    "results_root": "results",
+    "n_samples": 200,
+    "n_terms": 6,
+    "m1": 1.5,
+    "m2": -0.8,
+    "noise_std": 0.1,
+    "seed": 7,
+    "epochs": 5000,
+    "learning_rate": 0.03,
+    "lasso_lambda": 0.08,
+    "ridge_lambda": 0.08,
+    "zero_threshold": 0.03
+  },
+  "summary": {
+    "none": {
+      "data_loss": 0.00492525046095796,
+      "objective": 0.00492525046095796,
+      "nonzero_count": 11,
+      "dimension_estimate": 11,
+      "aggregate_linear": 1.503264419793911,
+      "aggregate_quadratic": -0.8013760396394636
+    },
+    "lasso": {
+      "data_loss": 0.008281601049070615,
+      "objective": 0.18594013662751527,
+      "nonzero_count": 5,
+      "dimension_estimate": 5,
+      "aggregate_linear": 1.4438614347192842,
+      "aggregate_quadratic": -0.7768702600112738
+    },
+    "ridge": {
+      "data_loss": 0.005088839258113943,
+      "objective": 0.024106859429631977,
+      "nonzero_count": 12,
+      "dimension_estimate": 12,
+      "aggregate_linear": 1.4885272593653682,
+      "aggregate_quadratic": -0.7981162959617127
+    }
+  },
+  "artifacts": {
+    "figure_png": "results/regularization_dimensionality/regularization_dimensionality.png",
+    "training_history_csv": "results/regularization_dimensionality/training_history.csv",
+    "final_coefficients_csv": "results/regularization_dimensionality/final_coefficients.csv",
+    "run_readme": "results/regularization_dimensionality/README.md"
+  }
+}
