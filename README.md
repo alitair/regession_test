@@ -28,11 +28,11 @@ We then study the set of parameter values that preserve the same loss and test w
 
 ## Results
 
-Here are the results from the loss_invariance experiment:
+The loss_invariance experiment clearly shows that you can recover the intrinsic dimensionality of the ground truth dataset
 
 ![Loss Invariance experiment](results/loss_invariance_analysis/loss_invariance_process.png)
 
-Here are the results from the lasso and ridge experiment:
+On the other hand, you can see that while the lasso and Ridge regualrization methods successfully reduce the magnitude of the coefficients of the regression, but they do not expressly indicate that the dimensionality of the dataset is 2. 
 
 ![Lasso and Ridge experiment](results/regularization_dimensionality/regularization_dimensionality.png)
 
