@@ -10,13 +10,15 @@ Finally, we will compare this to regularization methods Ridge and Lasso, which f
 
 We construct a 2 dimensional dataset of the form
 
-```math
+$$
 y = m_1 x + m_2 x^2
+$$
 
 and fit it with an overparameterized model of the form. 
 
-```math
+$$
 y = \sum_{n} \left(a_n x + b_n x^2\right)
+$$
 
 In the default experiment `n = 6`, so the model has `12` parameters and the script samples `60` equal-loss models.
 
