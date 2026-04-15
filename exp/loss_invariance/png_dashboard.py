@@ -409,7 +409,7 @@ def render_process_figure(
     canvas.draw_wrapped_text(
         44,
         90,
-        "This figure shows the full workflow: generate the data, compare a random model to the fitted model, sample equal-loss parameters, and recover the true dimensionality by counting active Hessian directions.",
+        f"Ground-truth dimension = 2. Overparameterized model dimension = {2 * cfg.n_terms}. Equal-loss models sampled = {len(aggregate_projection_points)}.",
         1750,
         (70, 70, 70),
         scale=1,
@@ -445,7 +445,7 @@ def render_process_figure(
         [(y_clean, (44, 160, 44))],
         "X (A.U.)",
         "Y (A.U.)",
-        "BLUE DOTS = DATA. GREEN CURVE = TRUE GENERATOR.",
+        "BLUE DOTS = DATA. GREEN CURVE = TRUE GENERATOR. TRUE DIMENSION = 2.",
     )
 
     draw_curve_panel(
@@ -456,7 +456,7 @@ def render_process_figure(
         [(y_random, (255, 127, 14))],
         "X (A.U.)",
         "Y (A.U.)",
-        f"ORANGE = RANDOM MODEL. LOSS = {random_loss:.2E}.",
+        f"ORANGE = RANDOM MODEL IN A {2 * cfg.n_terms}-DIMENSION PARAMETER SPACE. LOSS = {random_loss:.2E}.",
     )
 
     draw_curve_panel(
@@ -467,7 +467,7 @@ def render_process_figure(
         [(y_clean, (44, 160, 44)), (y_random, (255, 127, 14)), (y_fit, (214, 39, 40))],
         "X (A.U.)",
         "Y (A.U.)",
-        f"RED = FITTED MODEL. GREEN = TRUTH. PARAMETERS = {2 * cfg.n_terms}.",
+        f"RED = FITTED MODEL. GREEN = TRUTH. OVERPARAMETERIZED DIMENSION = {2 * cfg.n_terms}.",
     )
 
     flow_x = p4.x + 4
@@ -493,7 +493,7 @@ def render_process_figure(
         spectrum_text_box.height,
         (245, 245, 255),
         (132, 110, 190),
-        f"BUILD THE HESSIAN AT THE FITTED SOLUTION, COMPUTE ITS EIGENVALUES, AND COUNT HOW MANY ARE LARGER THAN A SMALL TOLERANCE. THAT COUNT IS THE NUMBER OF ACTIVE DIRECTIONS. HERE THE COUNT IS {summary.active_rank}, WHICH MATCHES THE TRUE DATA DIMENSION.",
+        f"BUILD THE HESSIAN AT THE FITTED SOLUTION, COMPUTE ITS EIGENVALUES, AND COUNT HOW MANY ARE LARGER THAN A SMALL TOLERANCE. HERE THE ACTIVE COUNT IS {summary.active_rank}, WHICH MATCHES THE TRUE DATA DIMENSION OF 2.",
     )
     spectrum_plot = PlotRegion(p5.x, p5.y + 146, p5.width, p5.height - 150)
     draw_spectrum_panel(canvas, spectrum_plot, all_eigenvalues, summary.active_rank, summary.nullity)
@@ -509,7 +509,7 @@ def render_process_figure(
     canvas.draw_wrapped_text(
         p6.x,
         p6.y + p6.height - 26,
-        "THE KEY IDEA IS THAT THE EQUAL-LOSS SET IS LARGE IN PARAMETER SPACE, BUT THE LOSS ONLY RESPONDS TO TWO AGGREGATED DIRECTIONS. THAT IS WHY THE RECOVERED DIMENSION IS 2.",
+        f"THE KEY IDEA IS THAT {len(aggregate_projection_points)} EQUAL-LOSS MODELS CAN EXIST IN A {2 * cfg.n_terms}-DIMENSION PARAMETER SPACE, BUT THE LOSS ONLY RESPONDS TO TWO AGGREGATED DIRECTIONS. THAT IS WHY THE RECOVERED DIMENSION IS 2.",
         p6.width,
         (60, 60, 60),
         scale=1,

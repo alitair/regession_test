@@ -64,7 +64,7 @@ def parse_args() -> Config:
     parser.add_argument("--n_terms", type=int, default=6)
     parser.add_argument("--m1", type=float, default=1.5)
     parser.add_argument("--m2", type=float, default=-0.8)
-    parser.add_argument("--noise_std", type=float, default=0.0)
+    parser.add_argument("--noise_std", type=float, default=0.1)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--direction_steps", type=int, default=161)
     parser.add_argument("--equivalent_samples", type=int, default=60)
@@ -111,6 +111,10 @@ def write_run_readme(path: Path, cfg: Config, summary: Summary, timings: list[di
         "",
         "## Conclusions",
         "",
+        "- The synthetic ground-truth data have dimensionality `2` because the target is controlled by the coefficients of `x` and `x^2`.",
+        f"- Gaussian noise with standard deviation `{cfg.noise_std}` is added to the synthetic data by default.",
+        f"- The overparameterized model uses `{2 * cfg.n_terms}` parameters.",
+        f"- The run generated `{cfg.equivalent_samples}` equal-loss parameter vectors.",
         f"- The fitted aggregate coefficients are `A={summary.a_fit:.6f}` and `B={summary.b_fit:.6f}`.",
         f"- The Hessian has `{summary.active_rank}` active dimensions and `{summary.nullity}` null dimensions.",
         f"- The maximum loss observed along sampled null-space solutions is `{summary.max_null_loss:.3e}`.",
